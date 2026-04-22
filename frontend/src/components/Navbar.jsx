@@ -119,7 +119,7 @@ function Navbar() {
                 <DropdownMenu>
                   <DropdownMenuTrigger asChild>
                     <Avatar size="lg">
-                      <AvatarImage src="https://github.com/shadcn.png" />
+                      <AvatarImage src={user.photoUrl ||"https://github.com/shadcn.png"} />
                       <AvatarFallback>PIC</AvatarFallback>
                     </Avatar>
                   </DropdownMenuTrigger>

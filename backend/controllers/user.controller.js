@@ -127,6 +127,7 @@ export const updateProfile = async(req, res) => {
 
         const fileUri = getDataUri(file)
         let cloudResponse = await cloudinary.uploader.upload(fileUri)
+        // console.log(cloudResponse)
 
         const user = await User.findById(userId).select("-password")
         
