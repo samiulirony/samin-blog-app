@@ -31,8 +31,6 @@ export const createBlog = async(req,res) => {
     }
 }
 
-
-
 export const updateBlog = async (req, res) => {
     try {
         const blogId = req.params.blogId
@@ -40,6 +38,7 @@ export const updateBlog = async (req, res) => {
         const file = req.file;
 
         let blog = await Blog.findById(blogId).populate("author");
+        
         if(!blog){
             return res.status(404).json({
                 message:"Blog not found!"
@@ -54,7 +53,7 @@ export const updateBlog = async (req, res) => {
         const updateData = {title, subtitle, description, category,author: req.id, thumbnail: thumbnail?.secure_url};
         blog = await Blog.findByIdAndUpdate(blogId, updateData, {new:true});
 
-        res.status(200).json({ success: true, message: "Blog updated successfully", blog });
+        res.status(200).json({ success: true, message: "Blog Updated Successfully", blog });
     } catch (error) {
         res.status(500).json({ success: false, message: "Error updating blog", error: error.message });
     }
