@@ -153,7 +153,7 @@ export const updateProfile = async(req, res) => {
 
         await user.save()
         return res.status(200).json({
-            message:"profile updated successfully",
+            message:"Profile Updated Successfully.",
             success:true,
             user
         })
@@ -162,7 +162,7 @@ export const updateProfile = async(req, res) => {
         console.log(error);
         return res.status(500).json({
             success: false,
-            message: "Failed to update profile"
+            message: "Failed to Update Profile."
         })
     }
 }

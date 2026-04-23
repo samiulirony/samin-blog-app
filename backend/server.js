@@ -2,6 +2,7 @@ import express from "express"
 import dotenv from "dotenv"
 import connectDB from "./database/db.js"
 import userRoute from "./routes/user.route.js"
+import blogRoute from "./routes/blog.route.js"
 import cors from "cors"
 import cookieParser from "cookie-parser"
 
@@ -27,6 +28,7 @@ app.use(cors({
 
 //api's
 app.use("/api/v1/user", userRoute)
+app.use("/api/v1/blog", blogRoute)
 
 // "http://localhost:8000/api/v1/user/register"
 

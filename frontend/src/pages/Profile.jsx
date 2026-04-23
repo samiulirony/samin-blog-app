@@ -86,7 +86,7 @@ function Profile() {
       );
       if (res.data.success) {
         setOpen(false);
-        toast.success(res.data.message);
+        toast.success(res.data.message, {style: { background: "#085169", color: "white" }});
         dispatch(setUser(res.data.user));
       }
     } catch (error) {
@@ -131,7 +131,7 @@ function Profile() {
                 Welcome: {user?.firstName || "User"} !
               </h1>
               <p>
-                <span className="font-semibold">Email : </span>{user.email}
+                <span className="font-semibold">Email : </span>{user?.email}
               </p>
               <div className="flex flex-col gap-2 items-start justify-start my-5">
                 <Label>Bio : </Label>
