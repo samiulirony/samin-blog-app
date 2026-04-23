@@ -124,10 +124,12 @@ export const updateProfile = async(req, res) => {
         const userId= req.id
         const {firstName, lastName, occupation, bio, instagram, facebook, linkedin, github} = req.body;
         const file = req.file;
+        let cloudResponse = null;
 
-        const fileUri = getDataUri(file)
-        let cloudResponse = await cloudinary.uploader.upload(fileUri)
-        // console.log(cloudResponse)
+        if (file) {
+            const fileUri = getDataUri(file);
+            cloudResponse = await cloudinary.uploader.upload(fileUri);
+        }
 
         const user = await User.findById(userId).select("-password")
         
@@ -147,7 +149,7 @@ export const updateProfile = async(req, res) => {
         if(linkedin) user.linkedin = linkedin
         if(github) user.github = github
         if(bio) user.bio = bio
-        if(file) user.photoUrl = cloudResponse.secure_url
+        if(file && cloudResponse?.secure_url) user.photoUrl = cloudResponse.secure_url
 
         await user.save()
         return res.status(200).json({

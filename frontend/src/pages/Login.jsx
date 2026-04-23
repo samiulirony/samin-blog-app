@@ -92,22 +92,24 @@ function Login() {
           <CardContent>
             <form className="space-y-4" onSubmit={handleSubmit}>
               <div className="flex flex-col gap-3">
-                <Label>Email:</Label>
+                <Label htmlFor="email">Email:</Label>
                 <Input
-                  type="email"
+                  type="email" autoComplete="true"
                   placeholder="Type Your Email Address"
                   name="email"
+                  id="email"
                   className="dark:border-gray-600 dark:bg-gray-900"
                   value={input.email}
                   onChange={handleChange}
                 />
               </div>
               <div className="flex flex-col gap-3 relative">
-                <Label>Password:</Label>
+                <Label htmlFor="password">Password:</Label>
                 <Input
                   type={showPassword ? "text" : "password"}
                   placeholder="Enter Your Password"
                   name="password"
+                  id="password"
                   className="dark:border-gray-600 dark:bg-gray-900"
                   value={input.password}
                   onChange={handleChange}

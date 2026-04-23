@@ -38,6 +38,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { LiaCommentSolid } from "react-icons/lia";
+import userLogo from "@/assets/images/user-logo.jpg";
 
 
 function Navbar() {
@@ -119,7 +120,7 @@ function Navbar() {
                 <DropdownMenu>
                   <DropdownMenuTrigger asChild>
                     <Avatar size="lg">
-                      <AvatarImage src={user.photoUrl ||"https://github.com/shadcn.png"} />
+                      <AvatarImage src={user.photoUrl ||userLogo} />
                       <AvatarFallback>PIC</AvatarFallback>
                     </Avatar>
                   </DropdownMenuTrigger>
